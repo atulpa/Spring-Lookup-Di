@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+<!--  FOR Car interface lookup method as Car is not class it is interface  -->
+
+<bean id="c" class="beans.Car">
+<lookup-method name="MyCarEngine" bean="e"/>
+</bean>
+
+<bean id="e" class="beans.Engine">
+<property name="name" value="swiftengine"/>
+</bean>
+
+
+<!--  for Bus Abstract class lookup methods................................  -->
+
+<bean id="b" class="beans.Bus">
+<lookup-method name="MyBusEngine" bean="e2"/>
+</bean>
+
+<bean id="e2" class="beans.Engine">
+<property name="name" value="tataengine"/>
+</bean>
+
+
+<!-- to override concrete implimantation of Trcuk concrete class............... -->
+
+<bean id="t" class="beans.Truck">
+<lookup-method name="MyTrcukEngine" bean="e3"/>
+</bean>
+
+<bean id="e3" class="beans.Engine">
+<property name="name" value="10 tyre cha truck"/>
+</bean>
+</beans>
